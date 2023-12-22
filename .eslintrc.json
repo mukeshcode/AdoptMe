@@ -1,0 +1,16 @@
+{
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": [],
+  "parserOptions": {
+    "ecmaVersion": 2022, // the version of JS we are using
+    "sourceType": "module", // doing import stuff
+    "ecmaFeatures": {
+      "jsx": true // we deal in JSX
+    }
+  },
+  "env": {
+    "es6": true, //
+    "browser": true, // don't give me error when I do "fetch" like stuff(lies as global in browser)
+    "node": true // don't give me error when I do "__dirname"like stuff(lies as global in node)
+  }
+}
