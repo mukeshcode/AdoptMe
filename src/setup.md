@@ -25,6 +25,7 @@ Create a file .eslintrc.json and config it.<br />
 Script : `{lint : "eslint \"src/**/*.{jsx,js}\" --quiet"}`<br />
 Can do `npm run lint` OR `npm run lint -- --debug` OR `npm run lint -- --debug`<br />
 Recognizes react : `npm install -D eslint-plugin-import@2.26.0 eslint-plugin-jsx-a11y@6.6.1 eslint-plugin-react@7.31.8`
+Hooks : `npm i -D eslint-plugin-react-hooks@4.6.0`
 
 ## 3. Setup Git
 
@@ -46,6 +47,13 @@ Script : {
 # React Core Concepts
 
 1. JSX gets converted to pure React like React.createElement() using Vite.
+2. React Component are only re-rendered when state changes, new props are passed from parent to the child, and when they are forced to update using forceUpdate() method.
+3. React HOOKS should always be called in the same order i.e. never use hooks inside conditiionals.
+4. Render functions should be very fast and stateless(?).
+
+# HOOKS
+
+1. useState : component UI = f(state). Component re-renders whenever state changes.
 
 # Doubts
 
