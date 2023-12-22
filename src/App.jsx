@@ -1,3 +1,6 @@
+import React from "react";
+import { createRoot } from "react-dom";
+
 const Pet = (props) => {
   return React.createElement(
     "div",
@@ -29,5 +32,5 @@ const App = () => {
 };
 
 const container = document.getElementById("root"); // getting the DOM element
-const root = ReactDOM.createRoot(container); // setting container as the root of the component tree
+const root = createRoot(container); // setting container as the root of the component tree
 root.render(React.createElement(App));
