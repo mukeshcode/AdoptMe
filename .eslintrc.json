@@ -1,6 +1,16 @@
 {
-  "extends": ["eslint:recommended", "prettier"],
-  "plugins": [],
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0
+  },
+  "plugins": ["react", "import", "jsx-a11y"],
   "parserOptions": {
     "ecmaVersion": 2022, // the version of JS we are using
     "sourceType": "module", // doing import stuff
@@ -12,5 +22,15 @@
     "es6": true, //
     "browser": true, // don't give me error when I do "fetch" like stuff(lies as global in browser)
     "node": true // don't give me error when I do "__dirname"like stuff(lies as global in node)
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
   }
 }

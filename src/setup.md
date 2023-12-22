@@ -23,7 +23,8 @@ Tool to spot simple JS errors.<br />
 `npm i -D eslint@8.24.0 eslint-config-prettier@8.5.0`<br />
 Create a file .eslintrc.json and config it.<br />
 Script : `{lint : "eslint \"src/**/*.{jsx,js}\" --quiet"}`<br />
-Can do `npm run lint` OR `npm run lint -- --debug` OR `npm run lint -- --debug`
+Can do `npm run lint` OR `npm run lint -- --debug` OR `npm run lint -- --debug`<br />
+Recognizes react : `npm install -D eslint-plugin-import@2.26.0 eslint-plugin-jsx-a11y@6.6.1 eslint-plugin-react@7.31.8`
 
 ## 3. Setup Git
 
@@ -33,11 +34,18 @@ A build tool using Roll up.<br />
 `npm i -D vite@3.1.4 @vitejs/plugin-react@2.1.0`<br />
 `<script type="module" src="App.jsx">`<br />
 Config vite.config.js file <br />
-Works on live code inclusion not dead code elimination.
+Works on live code inclusion not dead code elimination. <br />
+Script : {
+`"dev" : "vite | vite --port=3001", "build" : "vite build", "preview" : "vite preview"`
+}
 
 ## 5. React & ReactDOM
 
 `npm i react@18.2.0 react-dom@18.2.0`
+
+# React Core Concepts
+
+1. JSX gets converted to pure React like React.createElement() using Vite.
 
 # Doubts
 
