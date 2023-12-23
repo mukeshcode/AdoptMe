@@ -50,10 +50,19 @@ Script : {
 2. React Component are only re-rendered when state changes, new props are passed from parent to the child, and when they are forced to update using forceUpdate() method.
 3. React HOOKS should always be called in the same order i.e. never use hooks inside conditiionals.
 4. Render functions should be very fast and stateless(?).
+5. Operations like fetch and res.json() are async operations means they don't block the execution of other codes. So, it is important to await for them, until they complete.
+6. await pauses the execution of the function until the previous promise resolves creating a synchronous flow within the sync code.
+7. When using map, pass "key" as a unique identifier per thing, it helps React to identify each obj. uniquely.
+8. React uses key prop to render things in the proper order. If we just change the order of the obj. React would not re-render it again, but will just swap the changes.
 
 # HOOKS
 
 1. useState : component UI = f(state). Component re-renders whenever state changes.
+2. useEffect : allows you to say, render the component first, and then run the effect. Receives a list of dependencies(states) as the 2nd parameter. Signifies run the effect, whenever these states changes. e.g. <br />
+   `useEffect(() => {`<br />
+   ` callThis();` <br />
+   `},[state1, state2, ...]);`<br />
+   An empty list signifies to run the effect only 1st time the component renders.
 
 # Doubts
 
