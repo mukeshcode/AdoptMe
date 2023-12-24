@@ -54,6 +54,8 @@ Script : {
 6. await pauses the execution of the function until the previous promise resolves creating a synchronous flow within the sync code.
 7. When using map, pass "key" as a unique identifier per thing, it helps React to identify each obj. uniquely.
 8. React uses key prop to render things in the proper order. If we just change the order of the obj. React would not re-render it again, but will just swap the changes.
+9. Arrow functions are not hoisted as contrary to normal functions.
+10. While writing custom hooks, set up a tracking status like "unloaded", "loading", "loaded" to make it easy writing test cases.
 
 # HOOKS
 
