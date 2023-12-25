@@ -56,6 +56,14 @@ Script : {
 8. React uses key prop to render things in the proper order. If we just change the order of the obj. React would not re-render it again, but will just swap the changes.
 9. Arrow functions are not hoisted as contrary to normal functions.
 10. While writing custom hooks, set up a tracking status like "unloaded", "loading", "loaded" to make it easy writing test cases.
+11. React has a Virtual DOM representation and compares this with the Real DOM. Identifies the minimal change to align them and applies that.
+12. Smaller single purpose React components are easier to read, reuse and test.
+13. Using the spread operator ... while passing props to component.<br />
+    `<Pet {...petsProperties} key = {pet.id} />` is like writing `<Pet name=pet.name} animal={pet.animal} key={pet.id}`
+14. React Dev Tools => Essential tool for React developers.
+15. Strict mode => A tag with which you surround your app. Gives warnings about using features which will soon be deprecated.
+16. NODE_ENV = development<br />
+    React's development bundle is 4x bigger than its production as it has got more debug and developer helper tools. While shipping to production we need to set NODE_ENV = production, so that it compiles to a less code.
 
 # HOOKS
 
