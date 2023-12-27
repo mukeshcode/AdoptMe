@@ -65,7 +65,77 @@ Script : {
 16. NODE_ENV = development<br />
     React's development bundle is 4x bigger than its production as it has got more debug and developer helper tools. While shipping to production we need to set NODE_ENV = production, so that it compiles to a less code.
 
-# HOOKS
+# React Capablities
+
+<ol >
+    <li> react-router-dom : `npm i react-router-dom@6.4.1` 
+        <ul>
+            <li>Giving multi page like experiences on a single HTML page.</li>
+            <li>Managing rendering components rendering by state is complex.</li>
+            <li>Makes navigation easier</li>
+            Components included : <br>
+            <ul>
+                <li>BrowserRouter : </li>
+                <li>Routes : Encapsulates all the routes</li>
+                <li>Route : Has path to route to and element to render.</li>
+                <li>< Route path="/" element={< Details />}></li>
+                <li>Link : Similar to anchor tag, doesn't enforces refreshing of the page as anchor tag. Has `to` not `href`.</li>
+            </ul>
+        </ul>
+    </li>
+    <li>useParams from "react-router-dom" : const {id} = useParams() gets the id from the context of the BrowserRouter.</li>
+    <li>React-query : npm install @tanstack/react-query@4.10.1.</li>
+    <ul>
+        <li>Minimize useEffect as it is long and complicated. Use React-query.</li>
+        <li>Use QueryClientProvider and QueryClient are used along components and objects.</li>
+        <li>React Query stores in-memory cache. Can define staletime and cachetime.</li>
+    </ul>
+    <li>Cannot <strong>await</strong> in component's render function. Why?
+        <ul>
+            <li> Half the component rendering until the promise resolves or gets rejected <strong>Performance issue and frozen UI</strong></li>
+            <li>React render functions has to be really fast and return a React element tree as quickly as possible.</li>
+        </ul>
+        <strong>Solution</strong>
+        <ul>
+            <li>Use an useEffect after the component renders. Set the state with the received response and then render the component again.</li>
+            <li>Track the status of the response like unloaded, isLoading, loaded, etc. and conditionally render it. </li>
+        </ul>
+    </li>
+
+</ol>
+
+# React Special Tools
+
+<ol>
+<li> <strong>Error Boundaries</strong> : Catches error within its bracket scope.<br />
+    <ul>
+        <li>Absolute must use Class component because <code>getDerivedFromError()</code> and <code>componentDidCatch(error, info)</code> only available to use in it</li>
+        <li>Prevents your app from crashing.</li>
+        <li>Can make an error boundary reusable by passing props to it.</li>
+        <li>Can list all the errors to TrackJS and GemRelic like tools for fixing these errors.</li>
+    </ul>
+</li>
+</ol>
+
+# Class Components
+
+<ol>
+<li> Old counterpart of Functional component</li>
+<li> Three musts : 
+    <ul>
+        <li>Must extend React.Component</li>
+        <li>Must have a render function i.e. like body of functional component</li>
+        <li>Cannot use hooks : choose either hooks or class component</li>
+    </ul>
+</li>
+<li>Various lifecycle methods : componentDidMount(), componentDidUnmount(), componentDidUpdate(), shouldComponentMount() are aggregated to one useEffect</li>
+<li>Allows super fine tuning for performance</li>
+<li>Accesses state by this.state and props by this.props</li>
+<li><strong>Using hooks : </strong>Create a small functional component, use hooks there and just pass the results to the class component.<strong> No way to use hooks directly in classes</strong></li>
+
+</ol>
+
+# HOOKS(React)
 
 1. useState : component UI = f(state). Component re-renders whenever state changes.
 2. useEffect : allows you to say, render the component first, and then run the effect. Receives a list of dependencies(states) as the 2nd parameter. Signifies run the effect, whenever these states changes. e.g. <br />
@@ -73,6 +143,21 @@ Script : {
    ` callThis();` <br />
    `},[state1, state2, ...]);`<br />
    An empty list signifies to run the effect only 1st time the component renders.
+
+# HOOKS(Others)
+
+1. useParams from react-router-dom
+2. useQuery from @tanstack/react-query
+3. useMutation
+
+# Extras
+
+<ol>
+    <li>Extracting form data by :<br /> <code>const formData = new FormDate(e.target)<br /></code><code>const animal = formData.get("animal") ?? "";</code> </li>
+    <li>data-* attribute : used to embed custom data on HTMl elements. Can be accessed on JS by dataset.*</li>
+    <li>Everyting coming out of DOM is a string like every attribute's value</li>
+    <li>Convert a string to number using unary add e.g. +"5"</li>
+</ol>
 
 # Doubts
 
