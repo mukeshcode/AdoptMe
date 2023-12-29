@@ -101,7 +101,15 @@ Script : {
             <li>Track the status of the response like unloaded, isLoading, loaded, etc. and conditionally render it. </li>
         </ul>
     </li>
-
+    <li>
+        <strong>Context </strong> : App level generalized state.
+        <ul>
+            <li>For 2-3 pages app no need to use Context API. Just use state. That's enough</li>
+            <li>For bigger apps we can use Context provider and consumer</li>
+            <li>For more complex apps use <strong>Redux</strong> to manage contexts.</li>
+            <li>Contexts can be like user, theme, cart, etc.</li>
+        </ul>
+    </li>
 </ol>
 
 # React Special Tools
@@ -113,6 +121,25 @@ Script : {
         <li>Prevents your app from crashing.</li>
         <li>Can make an error boundary reusable by passing props to it.</li>
         <li>Can list all the errors to TrackJS and GemRelic like tools for fixing these errors.</li>
+    </ul>
+</li>
+<li>
+    <strong>Modals with Portals</strong>
+    <ul>
+        <li><u>Portals</u> are separate mounting points. Like <code>div id="portal" </code></li>
+        <li><u>Modals</u> are like confirmation boxes, which pops out on the screen.</li>
+        <li>
+            Creating a modal
+            <ol>
+                <li>Define a new mount point on top of your prev. mount point in your index.html</li>
+                <li>Create a new Component.</li>
+                <li>Access that created mount point and pass the created modal there.</li>
+                <li>Exiting the modal : Implement componentWillUnmount in functional component by returning a function which removes the modal from the portal</li>
+                <li>Where else to use Component Will Unmount : Stopping setIntervals, timers, performing clean up at the last.</li>
+            </ol>
+        </li>
+        <li>With modals we can do contextual naviagation, contextual footers as we are using some component's state but rendering in a separate mountpoint. That's cool!</li>
+        <li>Even though this modal is in a different DOM, it is in the same React Component tree. So, we can even do event bubbling from the modal to the parent.</li>
     </ul>
 </li>
 </ol>
@@ -143,10 +170,12 @@ Script : {
    ` callThis();` <br />
    `},[state1, state2, ...]);`<br />
    An empty list signifies to run the effect only 1st time the component renders.
+3. useRef : Returns an object with 1 property called current. Persists the value between re-renders and doesn't call re-render as it updates.
+4. useContext : Used to consume context provided by Context Provider.
 
 # HOOKS(Others)
 
-1. useParams from react-router-dom
+1. useParams, useNavigate from react-router-dom
 2. useQuery from @tanstack/react-query
 3. useMutation
 

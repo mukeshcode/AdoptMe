@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 import { useQuery } from "@tanstack/react-query";
 import fetchSearch from "./fetchSearch";
+import AdoptedPetContext from "./AdoptedPetContext";
 
 const ANIMAL = ["bird", "cat", "dog", "reptile", "rabbit"]
 
@@ -18,6 +19,9 @@ const SearchParams = () => {
   const results = useQuery(["search", requestParams], fetchSearch);
   const pets = results?.data?.pets ?? [];
 
+  // eslint-disable-next-line no-unused-vars
+  const [adoptedPet, _] = useContext(AdoptedPetContext);
+
   return (
     <div className="search-params">
       <form onSubmit={e => {
@@ -31,6 +35,13 @@ const SearchParams = () => {
         console.log(obj);
         setRequestParams(obj);
       }}>
+        {
+          adoptedPet ?
+            <div className="pet image-container">
+              <img src={adoptedPet.images[0]} alt={adoptedPet.name} />
+            </div>
+            : null
+        }
         <label htmlFor="location">
           Location
           <input id="location" placeholder="location" name="location" />
