@@ -1,7 +1,7 @@
 {
   "name": "revadoptme",
   "version": "1.0.0",
-  "homepage": "https://mukeshcode.github.io/AdoptMe",
+  "homepage": "https://mukeshcode.github.io/AdoptMe/",
   "description": "A website to adopt pet and meanwhile learn React",
   "main": "index.js",
   "scripts": {
